@@ -1,0 +1,19 @@
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+def CC(N):
+    head = temp = Node(1)
+    for i in range(2,N+1):
+        curr = Node(i)
+        curr.prev = temp
+        temp.next = curr
+        temp = temp.next
+    return head
+
+head = CC(10)
+while(head!=None):
+    print(head.data)
+    head = head.next
